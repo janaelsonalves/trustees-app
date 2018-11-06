@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   public users: any;
 
   public dataSource: MatTableDataSource<any>;
-  displayedColumns = ['first', 'last', 'email', 'address', 'created', 'balance'];
+  displayedColumns = ['created', 'first', 'last',/*  'email', 'address', */ 'balance'];
 
   @ViewChild(MatPaginator) paginator;
   @ViewChild(MatSort) sort;
