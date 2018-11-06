@@ -1,24 +1,38 @@
 <div class="container">
-  <div class="mylist">
-    <table>
-      <thead>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Email</th>
-        <th>address</th>
-        <th>created</th>
-        <th>balance</th>
-      </thead>
-      <tbody>
-        <tr *ngFor="let user of users">
-          <td>{{user?.first}}</td>
-          <td>{{user?.last}}</td>
-          <td>{{user?.email}}</td>
-          <td>{{user?.address}}</td>
-          <td>{{user?.created}}</td>
-          <td>{{user?.balance}}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  
+  <table mat-table [dataSource]="dataSource" matSort>
+
+    <ng-container matColumnDef="first">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> First Name</th>
+      <td mat-cell *matCellDef="let user"> {{user.first}} </td>
+    </ng-container>>
+
+    <ng-container matColumnDef="last">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Last Name</th>
+      <td mat-cell *matCellDef="let user"> {{user.last}} </td>
+    </ng-container>>
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> E-mail</th>
+      <td mat-cell *matCellDef="let user"> {{user.email}} </td>
+    </ng-container>>
+
+    <ng-container matColumnDef="address">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Address</th>
+      <td mat-cell *matCellDef="let user"> {{user.address}} </td>
+    </ng-container>>
+
+    <ng-container matColumnDef="created">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Created</th>
+      <td mat-cell *matCellDef="let user"> {{user.created}} </td>
+    </ng-container>>
+
+    <ng-container matColumnDef="balance">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Balance</th>
+      <td mat-cell *matCellDef="let user"> {{user.balance}} </td>
+    </ng-container>>    
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
 </div>

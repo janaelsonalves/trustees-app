@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { TrusteesApiService } from '../services/trustees-api.service';
 import * as xml2js from 'xml2js';
-import { MatTableDataSource } from '@angular/material';
+import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +11,12 @@ import { MatTableDataSource } from '@angular/material';
 export class HomeComponent implements OnInit {
 
   public users: any;
+
   public dataSource: MatTableDataSource<any>;
+  displayedColumns = ['first', 'last', 'email', 'address', 'created', 'balance'];
+
+  @ViewChild(MatPaginator) paginator;
+  @ViewChild(MatSort) sort;
 
   constructor(private trusteeApi: TrusteesApiService) { }
 
@@ -23,6 +28,8 @@ export class HomeComponent implements OnInit {
         } else {
           this.users = result.user.results;
           this.dataSource = new MatTableDataSource(this.users);
+          this.dataSource.sort = this.sort;
+          this.dataSource.paginator = this.paginator;
         }
       })
     });
