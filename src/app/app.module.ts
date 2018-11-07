@@ -7,14 +7,21 @@ import { AppComponent } from './app.component';
 import { TrusteesApiService } from './services/trustees-api.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UsersListComponent } from './users-list/users-list.component';
-import { MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
+import { MatTableModule, MatPaginatorModule, MatSortModule, MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatProgressSpinnerModule, MatCardModule } from '@angular/material';
 import { HomeComponent } from './home/home.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { AboutComponent } from './about/about.component';
+import { ProgressSpinnerComponent } from './components/progress-spinner/progress-spinner.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UsersListComponent,
-    HomeComponent
+    HomeComponent,
+    SidenavComponent,
+    AboutComponent,
+    ProgressSpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +30,15 @@ import { HomeComponent } from './home/home.component';
     BrowserAnimationsModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+    MatProgressSpinnerModule,
+    MatCardModule,
   ],
   providers: [TrusteesApiService],
   bootstrap: [AppComponent]

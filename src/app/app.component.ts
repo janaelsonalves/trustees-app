@@ -10,20 +10,21 @@ import * as xml2js from 'xml2js';
 export class AppComponent implements OnInit {
   title = 'trustees-app';
 
-  private results: any;
+  /*   private results: any; */
 
   constructor(private trusteeApi: TrusteesApiService) { }
 
   ngOnInit(): void {
-    this.trusteeApi.getTrustees().subscribe((data) => {
-      xml2js.parseString(data, { explicitArray: false }, (err, result) => {
-        if (err) {
-          console.error(err);
-        } else {
-          this.results = result;
-        }
-      })
-      console.log('Data:\n', this.results.user.results)
-    });
+    /*  this.trusteeApi.getTrustees().subscribe((data) => {
+       xml2js.parseString(data, { explicitArray: false }, (err, result) => {
+         if (err) {
+           console.error(err);
+         } else {
+           this.results = result;
+         }
+       })
+       console.log('Data:\n', this.results.user.results)
+     }); */
+    console.log('App component works!');
   }
 }
